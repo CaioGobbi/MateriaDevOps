@@ -38,4 +38,4 @@ jobs:
           ✅ CI concluído com sucesso no projeto **${{ github.repository }}**!
           🔄 Último commit: **${{ github.event.head_commit.message }}**
           ✍️ Autor: **${{ github.event.head_commit.author.name }}**
-          🚀 [Ver o repositório](https://github.com/${{ github.repository }})
+          🚀 [Ver o repositório:](https://github.com/${{ github.repository }})
