@@ -2,9 +2,9 @@ name: CI com alerta no Discord
 
 on:
   push:
-    branches: [ci-cd]
+    branches: [feature/ci-cd]
   pull_request:
-    branches: [ci-cd]
+    branches: [feature/ci-cd]
 
 jobs:
   ci:
