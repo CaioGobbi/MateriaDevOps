@@ -2,9 +2,9 @@ name: CI com alerta no Discord
 
 on:
   push:
-    branches: [main]
+    branches: [feature/ci-cd]
   pull_request:
-    branches: [main]
+    branches: [feature/ci-cd]
 
 jobs:
   ci:
@@ -30,10 +30,12 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || true
 
     - name: Enviar alerta no Discord
-      uses: Ilshidur/action-discord@master
+      uses: appleboy/discord-action@v1.0.0
       with:
-        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+        webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
         message: |
-          ✅ CI finalizado no projeto **${{ github.repository }}**!
+          ✅ CI concluído com sucesso no projeto **${{ github.repository }}**!
           🔄 Último commit: **${{ github.event.head_commit.message }}**
-          🔗 Autor: **${{ github.event.head_commit.author.name }}**
+          ✍️ Autor: **${{ github.event.head_commit.author.name }}**
+          🚀 [Ver o repositório:](https://github.com/${{ github.repository }})
